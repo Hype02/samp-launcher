@@ -9,6 +9,8 @@ const app = new App({
   },*/
 });
 
-
+class SampApi {
+  
+}
 
 export default app;

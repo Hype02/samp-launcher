@@ -1,6 +1,7 @@
 #build
 build/
-public/build
+public/build/
+
 
 # Logs
 logs
@@ -40,6 +41,7 @@ bower_components
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
+build/utils
 
 # Dependency directories
 node_modules/
