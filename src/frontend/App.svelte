@@ -1,3 +1,32 @@
+<script lang="ts">
+  export let name: string;
+  name = "testt";
+
+ 
+
+  import axios from "../../node_modules/axios";
+
+  axios.defaults.adapter = function () {
+    return require("axios/adapters/http"); // always use Node.js adapter
+  };
+
+  let fetchServerList = async () => {
+    let serverList: any = await axios.get("http://api.open.mp/servers");
+
+    console.log("the list" + serverList);
+  };
+
+  fetchServerList();
+</script>
+
+<main>
+  <h1>Hello {name}!</h1>
+  <p>
+    Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
+    how to build Svelte apps.
+  </p>
+</main>
+
 <style>
   main {
     text-align: center;
@@ -19,30 +48,3 @@
     }
   }
 </style>
-
-<script lang="ts">
-  export let name: string;
-  name = "testt"
-
-
-  import axios from '../../node_modules/axios'
-
-  let fetchServerList = async () => {
-    let serverList: any = await axios.get("http://api.open.mp/servers")
-    
-  
-    console.log(serverList)
-  }
-
-  
-  fetchServerList()
- 
-
-
-</script>
-
-<main>
-  <h1>Hello {name}!</h1>
-  <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-
-</main>
