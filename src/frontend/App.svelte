@@ -1,11 +1,11 @@
 <script lang="ts">
   import { Router, Route } from "svelte-routing";
 
-  import Nord from "./Nord.svelte"
-  import ServerList from "./ServerList.svelte"
-  import Options from "./Options.svelte"
+  import Nord from "./components/Nord.svelte"
+  import ServerList from "./components/ServerList.svelte"
+  import Options from "./components/Options.svelte"
 
-  import Header from "./Header.svelte";
+  import Header from "./components/Header.svelte";
 </script>
 
 <style>
