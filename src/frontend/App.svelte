@@ -6,6 +6,20 @@
   import Options from "./components/Options.svelte"
 
   import Header from "./components/Header.svelte";
+
+  import {SampApi, ServerInfo}  from './components/api/SampApi'
+
+  let servers: ServerInfo[] = []
+
+  let func: any = async function (){
+    servers = await SampApi.GetAllServersList()
+    
+  }
+
+  func()
+
+
+
 </script>
 
 <style>
@@ -25,6 +39,11 @@
 
 <Nord />
 <Header />
+<!-- test -->
+{#each servers as server}
+<div>{server.ip}</div>
+
+{/each}
 
 <Router url="">
   <Route path="options" component="{Options}" />
