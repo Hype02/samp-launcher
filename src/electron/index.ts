@@ -2,14 +2,17 @@ import {
   app,
   BrowserWindow,
   Notification,
+
   // nativeImage
 } from "electron";
 import { join } from "path";
 import { parse } from "url";
 import { autoUpdater } from "electron-updater";
-import electron from 'electron'
+
 import logger from "./utils/logger";
 import settings from "./utils/settings";
+
+
 
 const isProd = process.env.NODE_ENV === "production" || !/[\\/]electron/.exec(process.execPath); // !process.execPath.match(/[\\/]electron/);
 
@@ -34,17 +37,9 @@ const createWindow = () => {
   });
 
 
-  const filter = {
-    urls: ['*://*.google.com/*']
-  };
+  
 
 
-  const session = electron.remote.session
-  session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details: any, callback: any) => {
-      details.requestHeaders['Origin'] = null;
-      details.headers['Origin'] = null;
-      callback({ requestHeaders: details.requestHeaders })
-  });
 
   const url =
     // process.env.NODE_ENV === "production"

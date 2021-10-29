@@ -8,12 +8,14 @@
 
   let fetchServerList = async () => {
 
-    let serverList: any = await fetch("http://api.open.mp/servers")
+    let serverList: any = await (await fetch("https://api.open.mp/servers", {"mode": 'cors'})).json()
     
+   
+
   
   
 
-    console.log("the list" + serverList);
+    console.log("the list" + serverList[0].ip);
   };
 
   fetchServerList();
