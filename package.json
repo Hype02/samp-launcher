@@ -64,7 +64,8 @@
     "electron-fetch": "^1.7.4",
     "electron-log": "^4.3.5",
     "electron-store": "^8.0.0",
-    "electron-updater": "^4.3.9"
+    "electron-updater": "^4.3.9",
+    "svelte-routing": "^1.6.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19.0.0",

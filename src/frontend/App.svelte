@@ -1,9 +1,16 @@
 <script lang="ts">
+<<<<<<< HEAD
   export let name: string;
   name = "1234";
+=======
+  import { Router, Route } from "svelte-routing";
+>>>>>>> 56f0328cad021068a8b07316909d08d28b44cf1d
 
- 
+  import Nord from "./Nord.svelte"
+  import ServerList from "./ServerList.svelte"
+  import Options from "./Options.svelte"
 
+<<<<<<< HEAD
   let changeTest = () => {
     name="tekstsktd"
   }
@@ -43,24 +50,30 @@
 
 </main>
 
+=======
+  import Header from "./Header.svelte";
+</script>
+
+>>>>>>> 56f0328cad021068a8b07316909d08d28b44cf1d
 <style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
+  :global(body){
+    margin:0px;
+    padding:0px;
   }
 
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
+  :global(a){
+    color:inherit;
   }
 
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
+  :global(a:hover){
+    text-decoration: none;
   }
 </style>
+
+<Nord />
+<Header />
+
+<Router url="">
+  <Route path="options" component="{Options}" />
+  <Route path="/"><ServerList /> </Route>
+</Router>
