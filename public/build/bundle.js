@@ -352,7 +352,7 @@ var fluide = (function () {
     		c: function create() {
     			div = element("div");
     			div.textContent = "test";
-    			add_location(div, file, 29, 4, 1227);
+    			add_location(div, file, 29, 4, 1226);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -381,7 +381,7 @@ var fluide = (function () {
     		c: function create() {
     			div = element("div");
     			div.textContent = "1234";
-    			add_location(div, file, 32, 4, 1282);
+    			add_location(div, file, 32, 4, 1281);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -443,13 +443,13 @@ var fluide = (function () {
     			button = element("button");
     			button.textContent = "kliknij";
     			attr_dev(h1, "class", "svelte-1e9puaw");
-    			add_location(h1, file, 22, 2, 1051);
+    			add_location(h1, file, 22, 2, 1050);
     			attr_dev(a, "href", "https://svelte.dev/tutorial");
-    			add_location(a, file, 24, 14, 1094);
-    			add_location(p, file, 23, 2, 1076);
-    			add_location(button, file, 35, 2, 1311);
+    			add_location(a, file, 24, 14, 1093);
+    			add_location(p, file, 23, 2, 1075);
+    			add_location(button, file, 35, 2, 1310);
     			attr_dev(main, "class", "svelte-1e9puaw");
-    			add_location(main, file, 21, 0, 1042);
+    			add_location(main, file, 21, 0, 1041);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -565,7 +565,7 @@ var fluide = (function () {
     	};
 
     	let { name } = $$props;
-    	name = "1234";
+    	name = "123";
 
     	let changeTest = () => {
     		$$invalidate(0, name = "tekstsktd");
@@ -639,9 +639,9 @@ var fluide = (function () {
 
     const app = new App({
         target: document.body,
-        props: {
-            name: "world"
-        },
+        /*props: {
+          name: "world"
+        },*/
     });
 
     return app;
