@@ -4,14 +4,14 @@
 
  
 
-  import axios from "../../node_modules/axios";
 
-  axios.defaults.adapter = function () {
-    return require("axios/adapters/http"); // always use Node.js adapter
-  };
 
   let fetchServerList = async () => {
-    let serverList: any = await axios.get("http://api.open.mp/servers");
+
+    let serverList: any = await fetch("http://api.open.mp/servers")
+    
+  
+  
 
     console.log("the list" + serverList);
   };
