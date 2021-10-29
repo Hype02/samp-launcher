@@ -1,10 +1,12 @@
 <script lang="ts">
   export let name: string;
-  name = "testt";
+  name = "1234";
 
  
 
-
+  let changeTest = () => {
+    name="tekstsktd"
+  }
 
   let fetchServerList = async () => {
 
@@ -27,6 +29,18 @@
     Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
     how to build Svelte apps.
   </p>
+
+    {#if name == "123"}
+    <div>test</div>
+    {/if}
+    {#if name == "1234"}
+    <div>1234</div>
+    {/if}
+
+  <button on:click={changeTest}>kliknij</button>
+
+
+
 </main>
 
 <style>
