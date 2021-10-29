@@ -60,6 +60,8 @@
     "preversion": "npm-run-all -s lint format"
   },
   "dependencies": {
+    "axios": "^0.24.0",
+    "electron-fetch": "^1.7.4",
     "electron-log": "^4.3.5",
     "electron-store": "^8.0.0",
     "electron-updater": "^4.3.9"
