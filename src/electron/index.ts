@@ -29,7 +29,9 @@ const createWindow = () => {
       devTools: isProd ? false : true,
       contextIsolation: true,
       enableRemoteModule: false,
+      nodeIntegration: true
     },
+    
   });
 
   const url =
