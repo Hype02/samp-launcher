@@ -36,10 +36,18 @@
     }
   }
 
-  class SampApi {
-    constructor() {}
 
-    static async GetAllServersList<ServerInfo>() {
+
+  class SampApi {
+
+    static AllServersList: ServerInfo[] 
+
+    constructor()
+     {
+
+     }
+
+    static async FetchAllServersList<ServerInfo>() {
       let fetchedServersResponse = await fetch("https://api.open.mp/servers", {
         mode: "cors",
       });
@@ -72,8 +80,14 @@
 
         serversTypedArray.push(serverToPush as any);
       }
-    
+
+      SampApi.AllServersList = serversTypedArray as any
+
       return serversTypedArray;
+    }
+
+    static async GetAllServerList<ServerInfo>(){
+      return SampApi.AllServersList
     }
 
     // GetPublicServers
