@@ -24,4 +24,6 @@
     <th>{data.title}</th>
     <th>{data.playerCount}/{data.playerMax}</th>
     <th>{data.ip}</th>
+    <th> <img src={data.logoURL+".png"} height=".1rem" width=".1rem" alt={data.title} /> </th>
+  
 </tr>

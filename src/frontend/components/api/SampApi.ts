@@ -8,6 +8,7 @@
     language: string;
     lagcomp: boolean;
     version: string;
+    logoURL: string
 
     constructor(
       ip: string,
@@ -27,6 +28,11 @@
       this.version = version;
       this.language = language;
       this.lagcomp = lagComp;
+      this.logoURL =`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip}`
+
+    
+      
+      
     }
   }
 
