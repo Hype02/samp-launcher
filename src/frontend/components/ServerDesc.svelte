@@ -7,6 +7,8 @@
     currentServer.subscribe(value => {
         server = value;
     });
+
+
 </script>
 
 <style>
@@ -22,7 +24,7 @@
     }
 
     .statstable{
-        width:100%;
+        max-width:100rem;
         text-align:left;
         overflow-x: wrap;
     }
@@ -47,7 +49,7 @@
     {server.title}
 </div>
 <div class="serverstats">
-    <table class="statstable">
+    <table class="statstable" id="sttb">
         <tr>
             <th>Players</th>
             <th style="float:right">{server.playerCount}/{server.playerMax}</th>

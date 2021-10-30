@@ -29,6 +29,8 @@
         padding:5px;
         overflow-y:auto;
 
+        min-height:100%;
+
         font-weight: normal;
     }
 
@@ -63,8 +65,9 @@
 
 <div class="master">
     <div class="serverlist">
-        <table>
+        <table style="margin-left:5px;">
             <tr>
+                <th style="width:25px;"></th>
                 <th>Server Name</th>
                 <th>Players</th>
                 <th>Server IP</th>
