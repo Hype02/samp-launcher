@@ -5,12 +5,15 @@
   import Header from "./components/Header.svelte";
   import ServerList from "./components/ServerList.svelte"
   import Options from "./components/Options.svelte"
+
+  window.document.body.classList.toggle('dark-mode');
 </script>
 
 <style>
   :global(body){
     margin:0px;
     padding:0px;
+    overflow-y: hidden;
   }
 
   :global(a){
