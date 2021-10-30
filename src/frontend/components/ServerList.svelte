@@ -3,13 +3,12 @@
     import ServerEntry from "./ServerEntry.svelte"
     import ServerDesc from "./ServerDesc.svelte"
 
-    let servers: ServerInfo[] = []
+    let servers: ServerInfo[]  =  []
+    SampApi.GetAllServersList().then((res)=>{
+        servers = res as ServerInfo[]
+    })  
 
-    let func: any = async function (){
-        servers = await SampApi.GetAllServersList()
-    }
-
-    func()
+  
 </script>
 
 <style>
