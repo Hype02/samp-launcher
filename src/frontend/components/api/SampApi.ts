@@ -34,24 +34,12 @@ class ServerInfo {
     this.logoURL = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`
 
 
-    fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`, { mode: 'cors' }).then(res => {
+    // fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`, { mode: 'cors' }).then(res => {
 
-    }).catch(err => {
-      console.log("!NPM Fatal encourncer: Revson To Kutas")
-      this.logoURL = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com`
-    })
-
-
-
-
-
-
-
-
-
-
-
-
+    // }).catch(err => {
+    //   console.log("!NPM Fatal encourncer: Revson To Kutas")
+    //   this.logoURL = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com`
+    // })
 
   }
 }
