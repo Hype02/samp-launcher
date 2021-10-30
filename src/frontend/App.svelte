@@ -9,10 +9,6 @@
   import SampTest from './components/SampTest.svelte'
 
   window.document.body.classList.toggle('dark-mode');
-
-  window.document.body.classList.toggle('dark-mode');
-  
-
 </script>
 
 <style>
