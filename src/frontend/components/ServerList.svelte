@@ -4,9 +4,13 @@
     import ServerDesc from "./ServerDesc.svelte"
 
     let servers: ServerInfo[]  =  []
-    SampApi.FetchAllServersList().then((res)=>{
-        servers = res as ServerInfo[]
-    })  
+    if(SampApi.GetAllServerList() == undefined) {
+        SampApi.FetchAllServersList().then((res)=>{
+            servers = res as ServerInfo[]
+        })  
+    } else {
+        servers = SampApi.GetAllServerList();
+    }
 
   
 </script>
