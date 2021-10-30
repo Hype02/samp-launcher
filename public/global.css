@@ -44,10 +44,7 @@ input:disabled {
 	color: #ccc;
 }
 
-::-webkit-scrollbar{
-	display: none;
-	width: 0;
-}
+
 
 button {
 	color: #333;
