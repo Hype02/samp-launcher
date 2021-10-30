@@ -38,20 +38,24 @@
         mode: "cors",
       });
 
-      
+      let fetchedServersArray: [] = []
 
-      let fetchedServersArray: [] = await fetchedServersResponse.json();
+      try{
+         // security check - let's ensure data from website is not malicious
+         fetchedServersArray  = await fetchedServersResponse.json();
+      }
+      catch(err){
+        console.log("SECURITY ALERT: Code couldn't be fetch from database, because it contained malicious response:\n"+err)
+      }
+        
+
+       
+      if(fetchedServersArray == undefined)
+      return
+   
 
       let serversTypedArray: ServerInfo[] = [];
       for(let i=0; i<fetchedServersArray.length; i++){
-
-         // security check - let's ensure data from website is not malicious
-   
-          if( (fetchedServersArray[i] as string).includes("script") ){
-            console.log("SECURITY ALERT: Stopped fetching malicious data from API server.\n\
-            Contains <script> tag.")
-            return
-          }
         
         const { ip, hn, pc, pm, gm, la, vn, pa } = fetchedServersArray[i] as any;
         
