@@ -5,10 +5,17 @@
   import Header from "./components/Header.svelte";
   import ServerList from "./components/ServerList.svelte"
   import Options from "./components/Options.svelte"
+<<<<<<< HEAD
   
   import SampTest from './components/SampTest.svelte'
 
   window.document.body.classList.toggle('dark-mode');
+=======
+
+  window.document.body.classList.toggle('dark-mode');
+  
+  import SampTest from './components/SampTest.svelte'
+>>>>>>> 80efe55 (commit before pull)
 </script>
 
 <style>
