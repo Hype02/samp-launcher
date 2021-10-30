@@ -5,6 +5,8 @@
   import Header from "./components/Header.svelte";
   import ServerList from "./components/ServerList.svelte"
   import Options from "./components/Options.svelte"
+  
+  import SampTest from './components/SampTest.svelte'
 </script>
 
 <style>
@@ -24,7 +26,7 @@
 
 <Nord />
 <Header />
-
+<SampTest/>
 <Router url="">
   <Route path="/" component="{ServerList}" />
   <Route path="options" component="{Options}" />
