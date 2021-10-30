@@ -34,12 +34,6 @@ class ServerInfo {
     this.logoURL = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`
 
 
-    // fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`, { mode: 'cors' }).then(res => {
-
-    // }).catch(err => {
-    //   console.log("!NPM Fatal encourncer: Revson To Kutas")
-    //   this.logoURL = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com`
-    // })
 
   }
 }
@@ -81,6 +75,14 @@ class SampApi {
       const { ip, hn, pc, pm, gm, la, vn, pa } = fetchedServersArray[i] as any;
 
       let serverToPush = new ServerInfo(ip, hn, pm, pc, gm, la, vn, pa);
+
+
+      fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${serverToPush.ip.split(':')[0]}`, { mode: 'no-cors' }).then(res => {
+        console.log(res.arrayBuffer().then(r=>r.byteLength))
+      }).catch(err => {
+        console.log("!NPM Fatal encourncer: Revson To Kutas")
+        serverToPush.logoURL = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com`
+      })
 
       serversTypedArray.push(serverToPush as any);
     }
