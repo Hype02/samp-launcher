@@ -74,6 +74,7 @@
     "@rollup/plugin-typescript": "^8.2.1",
     "@tsconfig/svelte": "^2.0.1",
     "@types/clean-css": "^4.2.4",
+    "@types/discord-rpc": "^4.0.0",
     "@types/html-minifier": "^4.0.0",
     "@types/node": "^15.12.4",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
