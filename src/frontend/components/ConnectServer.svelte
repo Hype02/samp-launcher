@@ -3,16 +3,12 @@
 </style>
 <script lang="ts">
 
-
-
-
-
 import {app, BrowserWindow} from 'electron'
 import path from 'path'
 import url from 'url'
  
 // @ts-ignore
-import DiscordRPC  from '../../../node_modules/discord-rpc'
+//import DiscordRPC  from '../../../node_modules/discord-rpc'
 
 let mainWindow: any;
 
@@ -51,10 +47,10 @@ app.on('activate', () => {
 });
 
 // Set this to your Client ID.
-const clientId = '280984871685062656';
+//const clientId = '280984871685062656';
 
 // Only needed if you want to use spectate, join, or ask to join
-DiscordRPC.register(clientId);
+/*DiscordRPC.register(clientId);
 
 const rpc = new DiscordRPC.Client({ transport: 'ipc' });
 const startTimestamp = new Date();
@@ -91,7 +87,7 @@ rpc.on('ready', () => {
 
 rpc.login({ clientId }).catch(console.error);
 
-
+*/
 </script>
 
 <div>
