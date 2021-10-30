@@ -5,9 +5,22 @@
     let server : ServerInfo;
 
     currentServer.subscribe(value => {
+        window.dispatchEvent(new Event('resize'));
         server = value;
     });
 
+    /*window.addEventListener('resize', function(_event) {
+        document.querySelectorAll(".desc").forEach(function(item) {
+            if(isOverflown(item))
+            {
+                item.innerHTML = "...";
+            }
+        });
+    });
+
+    function isOverflown(element : any) {
+        return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+    }*/
 
 </script>
 
@@ -20,18 +33,18 @@
     }
 
     .serverstats{
-        padding:15px 35px 15px 35px;
-    }
+        padding:15px 25px 15px 25px;
 
-    .statstable{
-        max-width:100rem;
-        text-align:left;
-        overflow-x: wrap;
+        display:flex;
+        flex-direction: row;
+        flex-wrap:wrap;
     }
 
     .button{
         background-color: var(--nord5);
         box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
+
+        margin: 0px 25px 0px 25px;
 
         margin-top:15px;
         padding:15px;
@@ -42,6 +55,14 @@
     :global(body.dark-mode) .button{
         background-color: var(--nord1);
     }
+
+    .desc{
+        overflow-x:auto;
+    }
+
+    .desc::-webkit-scrollbar {
+        display:none;
+    }
 </style>
 
 
@@ -49,29 +70,17 @@
     {server.title}
 </div>
 <div class="serverstats">
-    <table class="statstable" id="sttb">
-        <tr>
-            <th>Players</th>
-            <th style="float:right">{server.playerCount}/{server.playerMax}</th>
-        </tr>
-        <tr>
-            <th>IP</th>
-            <th style="float:right">{server.ip}</th>
-        </tr>
-        <tr>
-            <th>Version</th>
-            <th style="float:right">{server.version}</th>
-        </tr>
-        <tr>
-            <th>GameMode</th>
-            <th style="float:right">{server.gameMode}</th>
-        </tr>
-        <tr>
-            <th>Language</th>
-            <th style="float:right">{server.language}</th>
-        </tr>
-    </table>
-    <a href="#"><div class="button">
-        Connect
-    </div></a>
+    <div class="desc" style="width:50%; ">Players</div>
+    <div class="desc" style="width:50%; text-align:right;">{server.playerCount}/{server.playerMax}</div>
+    <div class="desc" style="width:50%; ">IP</div>
+    <div class="desc" style="width:50%; text-align:right;">{server.ip}</div>
+    <div class="desc" style="width:50%; ">Version</div>
+    <div class="desc" style="width:50%; text-align:right;">{server.version}</div>
+    <div class="desc" style="width:50%; ">GameMode</div>
+    <div class="desc" style="width:50%; text-align:right;">{server.gameMode}</div>
+    <div class="desc" style="width:50%; ">Language</div>
+    <div class="desc" style="width:50%; text-align:right;">{server.language}</div>
 </div>
+<a href="#"><div class="button">
+    Connect
+</div></a>
