@@ -1,115 +1,115 @@
 
-  class ServerInfo {
-    ip: string;
-    title: string;
-    playerMax: number;
-    playerCount: number;
-    gameMode: string;
-    language: string;
-    lagcomp: boolean;
-    version: string;
-    logoURL: string
+class ServerInfo {
+  ip: string;
+  title: string;
+  playerMax: number;
+  playerCount: number;
+  gameMode: string;
+  language: string;
+  lagcomp: boolean;
+  version: string;
+  logoURL: string
 
-    constructor(
-      ip: string,
-      title: string,
-      worldTime: number,
-      ping: number,
-      gameMode: string,
-      language: string,
-      version: string,
-      lagComp: boolean
-    ) {
-      this.ip = ip;
-      this.title = title;
-      this.playerMax = worldTime;
-      this.gameMode = gameMode;
-      this.playerCount = ping;
-      this.version = version;
-      this.language = language;
-      this.lagcomp = lagComp;
-      
+  constructor(
+    ip: string,
+    title: string,
+    worldTime: number,
+    ping: number,
+    gameMode: string,
+    language: string,
+    version: string,
+    lagComp: boolean
+  ) {
+    this.ip = ip;
+    this.title = title;
+    this.playerMax = worldTime;
+    this.gameMode = gameMode;
+    this.playerCount = ping;
+    this.version = version;
+    this.language = language;
+    this.lagcomp = lagComp;
 
-      let url = ''
 
-      let asyncFunc = async () =>{
 
-        try{
-          let res = await fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`, {mode:'cors', method:'get'})
-          console.log((await res.arrayBuffer()).byteLength)
-          url = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`
-        }
-        catch(err){
-          url = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com`
-        }
-   
-      
-      }
-      asyncFunc()
-    
+    this.logoURL = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`
 
-      this.logoURL = url
-  
-      
-      
-    }
+
+    fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`, { mode: 'cors' }).then(res => {
+
+    }).catch(err => {
+      console.log("!NPM Fatal encourncer: Revson To Kutas")
+      this.logoURL = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com`
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}
+
+
+
+class SampApi {
+
+  static AllServersList: ServerInfo[]
+
+  constructor() {
+
   }
 
+  static async FetchAllServersList<ServerInfo>() {
+    let fetchedServersResponse = await fetch("https://api.open.mp/servers", {
+      mode: "cors",
+    });
+
+    let fetchedServersArray: [] = []
+
+    try {
+      // security check - let's ensure data from website is not malicious
+      fetchedServersArray = await fetchedServersResponse.json();
+    }
+    catch (err) {
+      console.log("SECURITY ALERT: Code couldn't be fetch from database, because it contained malicious response:\n" + err)
+    }
 
 
-  class SampApi {
 
-    static AllServersList: ServerInfo[] 
-
-    constructor()
-     {
-
-     }
-
-    static async FetchAllServersList<ServerInfo>() {
-      let fetchedServersResponse = await fetch("https://api.open.mp/servers", {
-        mode: "cors",
-      });
-
-      let fetchedServersArray: [] = []
-
-      try{
-         // security check - let's ensure data from website is not malicious
-         fetchedServersArray  = await fetchedServersResponse.json();
-      }
-      catch(err){
-        console.log("SECURITY ALERT: Code couldn't be fetch from database, because it contained malicious response:\n"+err)
-      }
-        
-
-       
-      if(fetchedServersArray == undefined)
+    if (fetchedServersArray == undefined)
       return
-   
 
-      let serversTypedArray: ServerInfo[] = [];
-      for(let i=0; i<fetchedServersArray.length; i++){
-        
-        const { ip, hn, pc, pm, gm, la, vn, pa } = fetchedServersArray[i] as any;
-        
-        let serverToPush = new ServerInfo(ip, hn, pm, pc, gm, la, vn, pa);
 
-        serversTypedArray.push(serverToPush as any);
-      }
+    let serversTypedArray: ServerInfo[] = [];
+    for (let i = 0; i < fetchedServersArray.length; i++) {
 
-      SampApi.AllServersList = serversTypedArray as any
+      const { ip, hn, pc, pm, gm, la, vn, pa } = fetchedServersArray[i] as any;
 
-      return serversTypedArray;
+      let serverToPush = new ServerInfo(ip, hn, pm, pc, gm, la, vn, pa);
+
+      serversTypedArray.push(serverToPush as any);
     }
 
-    static GetAllServerList():ServerInfo[]{
-      return SampApi.AllServersList
-    }
+    SampApi.AllServersList = serversTypedArray as any
 
-    // GetPublicServers
-    // GetHostedServers
+    return serversTypedArray;
   }
 
-  export { SampApi, ServerInfo };
+  static GetAllServerList(): ServerInfo[] {
+    return SampApi.AllServersList
+  }
+
+  // GetPublicServers
+  // GetHostedServers
+}
+
+export { SampApi, ServerInfo };
 
 
