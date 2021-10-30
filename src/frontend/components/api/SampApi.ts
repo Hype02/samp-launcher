@@ -27,6 +27,8 @@
       this.version = version;
       this.language = language;
       this.lagcomp = lagComp;
+
+      return this
     }
   }
 
@@ -55,12 +57,9 @@
         
         const { ip, hn, pc, pm, gm, la, vn, pa } = fetchedServersArray[i] as any;
         
-        let serverToPush = new ServerInfo(ip, hn, pm, pc, gm, la, vn, pa);
+        let serverToPush: any = new ServerInfo(ip, hn, pm, pc, gm, la, vn, pa)
 
-       
-        
-
-        serversTypedArray.push(serverToPush as any);
+        serversTypedArray.push(serverToPush);
       }
     
       return serversTypedArray;

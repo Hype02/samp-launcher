@@ -1,14 +1,12 @@
 <script lang="ts">
     import {SampApi, ServerInfo}  from './api/SampApi'
     import ServerEntry from "./ServerEntry.svelte"
+    let servers: ServerInfo[]  =  []
+    SampApi.GetAllServersList().then((res)=>{
+        servers = res as ServerInfo[]
+    })  
 
-    let servers: ServerInfo[] = []
-
-    let func: any = async function (){
-        servers = await SampApi.GetAllServersList()
-    }
-
-    func()
+  
 </script>
 
 <style>
