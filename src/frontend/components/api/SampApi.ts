@@ -28,7 +28,7 @@
       this.version = version;
       this.language = language;
       this.lagcomp = lagComp;
-      this.logoURL =`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip}`
+      this.logoURL =`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`
 
     
       
@@ -74,9 +74,6 @@
         const { ip, hn, pc, pm, gm, la, vn, pa } = fetchedServersArray[i] as any;
         
         let serverToPush = new ServerInfo(ip, hn, pm, pc, gm, la, vn, pa);
-
-       
-        
 
         serversTypedArray.push(serverToPush as any);
       }
