@@ -28,18 +28,28 @@
       this.version = version;
       this.language = language;
       this.lagcomp = lagComp;
-      this.logoURL =`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`
+      
 
+      let url = ''
 
-       fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`, {"mode":"cors"}).then(res=>{
-        res.arrayBuffer().then(r=>{
-          console.log(r.byteLength)
-        })
-       })
-       .catch(err=>{
-         console.log(err)
-       })
+      let asyncFunc = async () =>{
+
+        try{
+          let res = await fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`, {mode:'cors', method:'get'})
+          console.log((await res.arrayBuffer()).byteLength)
+          url = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`
+        }
+        catch(err){
+          url = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com`
+        }
+   
+      
+      }
+      asyncFunc()
     
+
+      this.logoURL = url
+  
       
       
     }
