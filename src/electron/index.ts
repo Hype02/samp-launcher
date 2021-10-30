@@ -31,7 +31,8 @@ const createWindow = () => {
     webPreferences: {
       devTools: isProd ? false : true,
       contextIsolation: true,
-      enableRemoteModule: false
+      enableRemoteModule: false,
+      nodeIntegration: true
     },
     
   });
@@ -83,7 +84,7 @@ app.on("web-contents-created", (e, contents) => {
     delete webPreferences.preload;
 
     // Disable Node.js integration
-    webPreferences.nodeIntegration = false;
+    webPreferences.nodeIntegration = true;
 
     // Verify URL being loaded
     // if (!params.src.startsWith(`file://${join(__dirname)}`)) {

@@ -3,16 +3,15 @@
 </style>
 
 <script lang="ts">
-// import {exec} from '../../../node_modules/run'
+//     let child_process = require('child_process')
+//    let exec = child_process.execFile;
 
-// try{
+//    exec(`wine "/home/hjp/.local/share/Steam/steamapps/common/Grand Theft Auto San Andreas/gta-sa.exe"`, (err, data)=>{
+//     if(err){
 
-//     exec(`wine "/home/hjp/.local/share/Steam/steamapps/common/Grand Theft Auto San Andreas/gta-sa.exe"`)
-//     console.log("done")
-// }
-// catch(err){
-//     console.log(err)
-// }
+//     }
+//     console.log(data.toString())
+//    })
 
 
 </script>

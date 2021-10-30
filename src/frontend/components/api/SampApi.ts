@@ -40,7 +40,7 @@
 
       
 
-      let fetchedServersArray: any = await fetchedServersResponse.json();
+      let fetchedServersArray: [] = await fetchedServersResponse.json();
 
       let serversTypedArray: ServerInfo[] = [];
       for(let i=0; i<fetchedServersArray.length; i++){
