@@ -5,13 +5,10 @@
   import Header from "./components/Header.svelte";
   import ServerList from "./components/ServerList.svelte"
   import Options from "./components/Options.svelte"
-<<<<<<< HEAD
-
-  window.document.body.classList.toggle('dark-mode');
-=======
   
   import SampTest from './components/SampTest.svelte'
->>>>>>> 366bbc2b191fc3ec1601d6dea89d90412d14e047
+
+  window.document.body.classList.toggle('dark-mode');
 </script>
 
 <style>

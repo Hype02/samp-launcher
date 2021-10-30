@@ -2,9 +2,6 @@
     import { Router } from "svelte-routing";
     
     import Tab from "./Tab.svelte";
-
-    //window.document.body.classList.toggle('dark-mode');
-
 </script>
 
 <style>

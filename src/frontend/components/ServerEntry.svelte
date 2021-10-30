@@ -21,6 +21,6 @@
 <!--<div class="serverentry" on:click={selectServer}>{data.ip}</div>-->
 <tr class="serverentry" on:click={selectServer}>
     <th>{data.title}</th>
-    <th>{data.worldTime}/{data.ping}</th>
+    <th>{data.playerCount}/{data.playerMax}</th>
     <th>{data.ip}</th>
 </tr>
