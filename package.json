@@ -60,6 +60,7 @@
     "preversion": "npm-run-all -s lint format"
   },
   "dependencies": {
+    "@xarc/run": "^1.1.0",
     "axios": "^0.24.0",
     "discord-rpc": "^4.0.1",
     "electron-fetch": "^1.7.4",
