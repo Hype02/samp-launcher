@@ -5,6 +5,7 @@
   import Header from "./components/Header.svelte";
   import ServerList from "./components/ServerList.svelte"
   import Options from "./components/Options.svelte"
+  import Favourites from "./components/Favourites.svelte"
   
   import SampTest from './components/SampTest.svelte'
 
@@ -32,5 +33,6 @@
 <SampTest/>
 <Router url="">
   <Route path="/" component="{ServerList}" />
+  <Route path="favourites" component="{Favourites}" />
   <Route path="options" component="{Options}" />
 </Router>
