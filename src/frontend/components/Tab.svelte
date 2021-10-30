@@ -14,7 +14,6 @@
         else {
             document.getElementById(id)?.classList.remove('active');
         }
-        console.log("what the fuck");
     });
 
     function updateTabs(){
@@ -37,7 +36,7 @@
 </style>
 
 {#if active}
-<div id={ id } class="tab active" on:click={updateTabs}><a href={ ref } use:link >{ name }</a></div>
+<a href={ ref } use:link><div id={ id } class="tab active" on:click={updateTabs}>{ name }</div></a>
 {:else}
-<div id={ id } class="tab" on:click={updateTabs}><a href={ ref } use:link>{ name }</a></div>
+<a href={ ref } use:link><div id={ id } class="tab" on:click={updateTabs}>{ name }</div></a>
 {/if}
