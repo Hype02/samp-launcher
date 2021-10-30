@@ -9,27 +9,15 @@
         server = value;
     });
 
-    /*window.addEventListener('resize', function(_event) {
-        document.querySelectorAll(".desc").forEach(function(item) {
-            if(isOverflown(item))
-            {
-                item.innerHTML = "...";
-            }
-        });
-    });
-
-    function isOverflown(element : any) {
-        return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
-    }*/
-
 </script>
 
 <style>
     .servertitle{
         margin-top:10px;
-        padding:0px 35px 0px 35px;
+        margin: 0px 25px 0px 25px;
         text-align:center;
         font-size:x-large;
+        overflow-x:hidden;
     }
 
     .serverstats{
@@ -46,10 +34,14 @@
 
         margin: 0px 25px 0px 25px;
 
-        margin-top:15px;
+        margin-top:10px;
         padding:15px;
         text-align:center;
         font-size:large;
+    }
+
+    .button:hover{
+        cursor:pointer;
     }
 
     :global(body.dark-mode) .button{
@@ -60,27 +52,41 @@
         overflow-x:auto;
     }
 
+    .desc:hover{
+        position:relative;
+        overflow-x:visible;
+    }
+
     .desc::-webkit-scrollbar {
         display:none;
+    }
+
+    .servertitleparent{
+        overflow-x: hidden;
     }
 </style>
 
 
-<div class="servertitle">
-    {server.title}
+<div class="servertitleparent">
+    <div class="servertitle">
+        {server.title}
+    </div>
 </div>
+
 <div class="serverstats">
-    <div class="desc" style="width:50%; ">Players</div>
-    <div class="desc" style="width:50%; text-align:right;">{server.playerCount}/{server.playerMax}</div>
-    <div class="desc" style="width:50%; ">IP</div>
-    <div class="desc" style="width:50%; text-align:right;">{server.ip}</div>
-    <div class="desc" style="width:50%; ">Version</div>
-    <div class="desc" style="width:50%; text-align:right;">{server.version}</div>
-    <div class="desc" style="width:50%; ">GameMode</div>
-    <div class="desc" style="width:50%; text-align:right;">{server.gameMode}</div>
-    <div class="desc" style="width:50%; ">Language</div>
-    <div class="desc" style="width:50%; text-align:right;">{server.language}</div>
+    <div class="desc" style="width:40%; ">Players</div>
+    <div class="desc" style="width:60%; text-align:right;">{server.playerCount}/{server.playerMax}</div>
+    <div class="desc" style="width:40%; ">IP</div>
+    <div class="desc" style="width:60%; text-align:right;">{server.ip}</div>
+    <div class="desc" style="width:40%; ">Version</div>
+    <div class="desc" style="width:60%; text-align:right;">{server.version}</div>
+    <div class="desc" style="width:40%; ">GameMode</div>
+    <div class="desc" style="width:60%; text-align:right;">{server.gameMode}</div>
+    <div class="desc" style="width:40%; ">Language</div>
+    <div class="desc" style="width:60%; text-align:right;">{server.language}</div>
 </div>
-<a href="#"><div class="button">
+
+<div class="button">
     Connect
-</div></a>
+</div>
+

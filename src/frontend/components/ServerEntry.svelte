@@ -12,6 +12,7 @@
 <style>
     .serverentry:hover{
         background-color: var(--nord6);
+        cursor:pointer;
     }
 
     :global(body.dark-mode) .serverentry:hover{
