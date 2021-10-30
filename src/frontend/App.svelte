@@ -26,6 +26,6 @@
 <Header />
 
 <Router url="">
+  <Route path="/" component="{ServerList}" />
   <Route path="options" component="{Options}" />
-  <Route path="/"><ServerList /> </Route>
 </Router>
