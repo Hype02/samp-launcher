@@ -26,6 +26,8 @@
         display:flex;
         flex-direction: row;
         flex-wrap:wrap;
+
+        overflow-x:hidden !important;
     }
 
     .button{
@@ -38,6 +40,8 @@
         padding:15px;
         text-align:center;
         font-size:large;
+
+        overflow-x:hidden;
     }
 
     .button:hover{
