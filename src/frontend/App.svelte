@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Router, Route } from "svelte-routing";
-
+  import path from 'path'
+  import url from 'url'
   import Nord from "./components/Nord.svelte"
   import ServerList from "./components/ServerList.svelte"
   import Options from "./components/Options.svelte"
@@ -19,6 +20,34 @@
 
   func()
 
+  const { BrowserWindow } = require('electron');
+
+
+  let mainWindow;
+  // @ts-ignore
+  function createWindow() {
+  mainWindow = new BrowserWindow({
+    width: 340,
+    height: 380,
+    resizable: false,
+    titleBarStyle: 'hidden',
+    webPreferences: {
+      nodeIntegration: true,
+    },
+  });
+
+  mainWindow.loadURL(url.format({
+    pathname: path.join(__dirname, 'index.html'),
+    protocol: 'file:',
+    slashes: true,
+  }));
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
+
+  createWindow()
+}
 
 
 </script>

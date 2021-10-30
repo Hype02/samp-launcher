@@ -1,7 +1,12 @@
 
 (function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
-var fluide = (function () {
+var fluide = (function (path, url) {
     'use strict';
+
+    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+    var path__default = /*#__PURE__*/_interopDefaultLegacy(path);
+    var url__default = /*#__PURE__*/_interopDefaultLegacy(url);
 
     function noop() { }
     function assign(tar, src) {
@@ -2147,28 +2152,28 @@ var fluide = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[3] = list[i];
+    	child_ctx[6] = list[i];
     	return child_ctx;
     }
 
-    // (44:0) {#each servers as server}
+    // (69:0) {#each servers as server}
     function create_each_block(ctx) {
     	let div;
-    	let t_value = /*server*/ ctx[3].ip + "";
+    	let t_value = /*server*/ ctx[6].ip + "";
     	let t;
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			t = text(t_value);
-    			add_location(div, file, 44, 0, 1484);
+    			add_location(div, file, 69, 0, 2094);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
     			append_dev(div, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*servers*/ 1 && t_value !== (t_value = /*server*/ ctx[3].ip + "")) set_data_dev(t, t_value);
+    			if (dirty & /*servers*/ 1 && t_value !== (t_value = /*server*/ ctx[6].ip + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
@@ -2179,14 +2184,14 @@ var fluide = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(44:0) {#each servers as server}",
+    		source: "(69:0) {#each servers as server}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (53:2) <Route path="/">
+    // (78:2) <Route path="/">
     function create_default_slot_1(ctx) {
     	let serverlist;
     	let current;
@@ -2218,14 +2223,14 @@ var fluide = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(53:2) <Route path=\\\"/\\\">",
+    		source: "(78:2) <Route path=\\\"/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:0) <Router url="">
+    // (76:0) <Router url="">
     function create_default_slot(ctx) {
     	let route0;
     	let t;
@@ -2261,7 +2266,7 @@ var fluide = (function () {
     		p: function update(ctx, dirty) {
     			const route1_changes = {};
 
-    			if (dirty & /*$$scope*/ 64) {
+    			if (dirty & /*$$scope*/ 512) {
     				route1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2289,7 +2294,7 @@ var fluide = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(51:0) <Router url=\\\"\\\">",
+    		source: "(76:0) <Router url=\\\"\\\">",
     		ctx
     	});
 
@@ -2381,7 +2386,7 @@ var fluide = (function () {
 
     			const router_changes = {};
 
-    			if (dirty & /*$$scope*/ 64) {
+    			if (dirty & /*$$scope*/ 512) {
     				router_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2472,6 +2477,32 @@ var fluide = (function () {
     	};
 
     	func();
+    	const { BrowserWindow } = require("electron");
+    	let mainWindow;
+
+    	// @ts-ignore
+    	function createWindow() {
+    		mainWindow = new BrowserWindow({
+    				width: 340,
+    				height: 380,
+    				resizable: false,
+    				titleBarStyle: "hidden",
+    				webPreferences: { nodeIntegration: true }
+    			});
+
+    		mainWindow.loadURL(url__default['default'].format({
+    			pathname: path__default['default'].join(__dirname, "index.html"),
+    			protocol: "file:",
+    			slashes: true
+    		}));
+
+    		mainWindow.on("closed", () => {
+    			mainWindow = null;
+    		});
+
+    		createWindow();
+    	}
+
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -2482,6 +2513,8 @@ var fluide = (function () {
     		__awaiter,
     		Router,
     		Route,
+    		path: path__default['default'],
+    		url: url__default['default'],
     		Nord,
     		ServerList,
     		Options,
@@ -2489,13 +2522,17 @@ var fluide = (function () {
     		SampApi,
     		ServerInfo,
     		servers,
-    		func
+    		func,
+    		BrowserWindow,
+    		mainWindow,
+    		createWindow
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("__awaiter" in $$props) __awaiter = $$props.__awaiter;
     		if ("servers" in $$props) $$invalidate(0, servers = $$props.servers);
     		if ("func" in $$props) func = $$props.func;
+    		if ("mainWindow" in $$props) mainWindow = $$props.mainWindow;
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -2528,5 +2565,5 @@ var fluide = (function () {
 
     return app;
 
-}());
+}(path, url));
 //# sourceMappingURL=bundle.js.map
