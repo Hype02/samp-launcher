@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Router, Route } from "svelte-routing";
-
   import Nord from "./components/Nord.svelte"
 
   import Header from "./components/Header.svelte";
