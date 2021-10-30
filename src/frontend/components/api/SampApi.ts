@@ -80,7 +80,7 @@ class SampApi {
       fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${serverToPush.ip.split(':')[0]}`, { mode: 'no-cors' }).then(res => {
         console.log(res.arrayBuffer().then(r=>r.byteLength))
       }).catch(err => {
-        console.log("!NPM Fatal encourncer: Revson To Kutas")
+        console.log( err)
         serverToPush.logoURL = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com`
       })
 
