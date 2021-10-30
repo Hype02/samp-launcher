@@ -2,17 +2,17 @@
 
 </style>
 
-<script>
-import {exec} from '../../../node_modules/run'
+<script lang="ts">
+// import {exec} from '../../../node_modules/run'
 
-try{
+// try{
 
-    exec(`wine "/home/hjp/.local/share/Steam/steamapps/common/Grand Theft Auto San Andreas/gta-sa.exe"`)
-    console.log("done")
-}
-catch(err){
-    console.log(err)
-}
+//     exec(`wine "/home/hjp/.local/share/Steam/steamapps/common/Grand Theft Auto San Andreas/gta-sa.exe"`)
+//     console.log("done")
+// }
+// catch(err){
+//     console.log(err)
+// }
 
 
 </script>
