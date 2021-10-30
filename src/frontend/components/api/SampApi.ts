@@ -30,6 +30,15 @@
       this.lagcomp = lagComp;
       this.logoURL =`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`
 
+
+       fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`, {"mode":"cors"}).then(res=>{
+        res.arrayBuffer().then(r=>{
+          console.log(r.byteLength)
+        })
+       })
+       .catch(err=>{
+         console.log(err)
+       })
     
       
       
