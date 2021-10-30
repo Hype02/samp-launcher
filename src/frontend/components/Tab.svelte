@@ -23,7 +23,7 @@
 
 <style>
     .tab{
-        padding:5px;
+        padding: 5px 10px 5px 10px;
     }
 
     .active{

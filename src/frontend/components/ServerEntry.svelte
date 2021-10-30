@@ -1,10 +1,11 @@
 <script lang="ts">
     import type { ServerInfo } from "./api/SampApi";
+    import { currentServer } from "./stores";
 
     export let data : ServerInfo;
 
     function selectServer(){
-        alert(data.title);
+        currentServer.set(data);
     }
 </script>
 

@@ -1,6 +1,7 @@
 <script lang="ts">
     import {SampApi, ServerInfo}  from './api/SampApi'
     import ServerEntry from "./ServerEntry.svelte"
+    import ServerDesc from "./ServerDesc.svelte"
 
     let servers: ServerInfo[] = []
 
@@ -13,8 +14,10 @@
 
 <style>
     .master{
-        height:95%;
+        height:100%;
+        width:75%;
         overflow-y: scroll;
+        float:left;
     }
     .serverlist{
         background-color: var(--nord5);
@@ -22,6 +25,27 @@
 
         padding:5px;
         overflow-y:auto;
+
+        font-weight: normal;
+    }
+
+    .serverdesc{
+        background-color: var(--nord4);
+        color: var(--nord0);
+
+        height:100%;
+        width:25%;
+
+        float:left;
+    }
+
+    :global(body.dark-mode) .serverdesc{
+        background-color: var(--nord0);
+        color: var(--nord4);
+    }
+
+    :global(th){
+        font-weight:normal;
     }
 
     :global(body.dark-mode) .serverlist{
@@ -48,4 +72,7 @@
             {/each}
         </table>
     </div>
+</div>
+<div class="serverdesc">
+    <ServerDesc />
 </div>
