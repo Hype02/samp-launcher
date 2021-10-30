@@ -2,8 +2,8 @@
   class ServerInfo {
     ip: string;
     title: string;
-    worldTime: number;
-    ping: number;
+    playerMax: number;
+    playerCount: number;
     gameMode: string;
     language: string;
     lagcomp: boolean;
@@ -21,9 +21,9 @@
     ) {
       this.ip = ip;
       this.title = title;
-      this.worldTime = worldTime;
+      this.playerMax = worldTime;
       this.gameMode = gameMode;
-      this.ping = ping;
+      this.playerCount = ping;
       this.version = version;
       this.language = language;
       this.lagcomp = lagComp;
@@ -45,9 +45,9 @@
       let serversTypedArray: ServerInfo[] = [];
       for(let i=0; i<fetchedServersArray.length; i++){
         const { ip, hn, pc, pm, gm, la, vn, pa } = fetchedServersArray[i] as any;
-
+      
         let serverToPush = new ServerInfo(ip, hn, pc, pm, gm, la, vn, pa);
-
+        console.log(serverToPush)
         serversTypedArray.push(serverToPush as any);
       }
     
