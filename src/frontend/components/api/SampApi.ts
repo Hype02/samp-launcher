@@ -86,7 +86,7 @@
       return serversTypedArray;
     }
 
-    static async GetAllServerList<ServerInfo>(){
+    static async GetAllServerList(){
       return SampApi.AllServersList
     }
 
