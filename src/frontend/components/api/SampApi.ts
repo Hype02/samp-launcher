@@ -8,7 +8,8 @@ class ServerInfo {
   language: string;
   lagcomp: boolean;
   version: string;
-  logoURL: string
+  webUrl: string
+  logoUrl: string
 
   constructor(
     ip: string,
@@ -18,7 +19,8 @@ class ServerInfo {
     gameMode: string,
     language: string,
     version: string,
-    lagComp: boolean
+    lagComp: boolean,
+    webUrl: string
   ) {
     this.ip = ip;
     this.title = title;
@@ -28,13 +30,10 @@ class ServerInfo {
     this.version = version;
     this.language = language;
     this.lagcomp = lagComp;
-
-
-
-    this.logoURL = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://${this.ip.split(':')[0]}`
-
-
-
+    this.webUrl = webUrl
+    this.logoUrl = `https://s2.googleusercontent.com/s2/favicons?domain_url=${this.webUrl}`
+    console.log(this.logoUrl)
+    
   }
 }
 
@@ -74,15 +73,28 @@ class SampApi {
 
       const { ip, hn, pc, pm, gm, la, vn, pa } = fetchedServersArray[i] as any;
 
-      let serverToPush = new ServerInfo(ip, hn, pm, pc, gm, la, vn, pa);
+
+      let result = await fetch(`https://api.open.mp/server/${ip}`, {mode: 'cors'})
+      let resultInJson = await result.json()
+    
+
+      let fetchedWebUrl: string = resultInJson.ru?.weburl
+     
+    
+      let webUrl = (fetchedWebUrl as string)
+      if(webUrl){
+        webUrl = "http://" + webUrl
+      }
 
 
-      fetch(`https://s2.googleusercontent.com/s2/favicons?domain_url=http://${serverToPush.ip.split(':')[0]}`, { mode: 'no-cors' }).then(res => {
-        console.log(res.arrayBuffer().then(r=>r.byteLength))
-      }).catch(err => {
-        console.log( err)
-        serverToPush.logoURL = `https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com`
-      })
+
+      let serverToPush = new ServerInfo(ip, hn, pm, pc, gm, la, vn, pa, webUrl);
+
+
+      if(fetchedWebUrl == ''){
+        serverToPush.logoUrl = "https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com"
+      }
+  
 
       serversTypedArray.push(serverToPush as any);
     }
