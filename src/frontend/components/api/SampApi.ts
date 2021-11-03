@@ -69,35 +69,35 @@ class SampApi {
 
 
     let serversTypedArray: ServerInfo[] = [];
-    for (let i = 0; i < fetchedServersArray.length; i++) {
+    // for (let i = 0; i < fetchedServersArray.length; i++) {
 
-      const { ip, hn, pc, pm, gm, la, vn, pa } = fetchedServersArray[i] as any;
+    //   const { ip, hn, pc, pm, gm, la, vn, pa } = fetchedServersArray[i] as any;
 
 
-      let result = await fetch(`https://api.open.mp/server/${ip}`, {mode: 'cors'})
-      let resultInJson = await result.json()
+    //   let result = await fetch(`https://api.open.mp/server/${ip}`, {mode: 'cors'})
+    //   let resultInJson = await result.json()
     
 
-      let fetchedWebUrl: string = resultInJson.ru?.weburl
+    //   let fetchedWebUrl: string = resultInJson.ru?.weburl
      
     
-      let webUrl = (fetchedWebUrl as string)
-      if(webUrl){
-        webUrl = "http://" + webUrl
-      }
+    //   let webUrl = (fetchedWebUrl as string)
+    //   if(webUrl){
+    //     webUrl = "http://" + webUrl
+    //   }
 
 
 
-      let serverToPush = new ServerInfo(ip, hn, pm, pc, gm, la, vn, pa, webUrl);
+    //   let serverToPush = new ServerInfo(ip, hn, pm, pc, gm, la, vn, pa, webUrl);
 
 
-      if(fetchedWebUrl == ''){
-        serverToPush.logoUrl = "https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com"
-      }
+    //   if(fetchedWebUrl == ''){
+    //     serverToPush.logoUrl = "https://s2.googleusercontent.com/s2/favicons?domain_url=http://sa-mp.com"
+    //   }
   
 
-      serversTypedArray.push(serverToPush as any);
-    }
+    //   serversTypedArray.push(serverToPush as any);
+    // }
 
     SampApi.AllServersList = serversTypedArray as any
 

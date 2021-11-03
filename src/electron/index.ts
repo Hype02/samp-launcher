@@ -30,10 +30,17 @@ const createWindow = () => {
     height: 680,
     webPreferences: {
       devTools: isProd ? false : true,
-      contextIsolation: true,
-      enableRemoteModule: false,
-      nodeIntegration: true
-    },
+    //  enableRemoteModule: false,
+    nodeIntegration: true,
+    nodeIntegrationInWorker: true,
+    nodeIntegrationInSubFrames: true,
+    sandbox: false,
+    javascript: true,
+    webSecurity: true,
+    contextIsolation: false,
+    }
+
+    
     
   });
 
@@ -84,7 +91,7 @@ app.on("web-contents-created", (e, contents) => {
     delete webPreferences.preload;
 
     // Disable Node.js integration
-    webPreferences.nodeIntegration = true;
+ //   webPreferences.nodeIntegration = true;
 
     // Verify URL being loaded
     // if (!params.src.startsWith(`file://${join(__dirname)}`)) {

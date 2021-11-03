@@ -3,15 +3,17 @@
 </style>
 
 <script lang="ts">
-//     let child_process = require('child_process')
-//    let exec = child_process.execFile;
+    let {exec} = require('child_process')
 
-//    exec(`wine "/home/hjp/.local/share/Steam/steamapps/common/Grand Theft Auto San Andreas/gta-sa.exe"`, (err, data)=>{
-//     if(err){
+  
 
-//     }
-//     console.log(data.toString())
-//    })
+   exec('wine "/home/hjp/.local/share/Steam/steamapps/common/Grand Theft Auto San Andreas/gta-sa.exe" 127.0.0.1 HYPE', (err: any, data: any)=>{
+    if(err){
+        console.log(err)
+        // game is already running
+    }
+    console.log(data.toString())
+   })
 
 
 </script>
