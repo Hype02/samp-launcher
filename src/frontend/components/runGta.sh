@@ -1,0 +1,1 @@
+wine "/home/hjp/.local/share/Steam/steamapps/common/Grand Theft Auto San Andreas/gta-sa.exe"
